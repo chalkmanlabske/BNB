@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buy BNB Easily | Chalkman Labs</title>
+<meta name="description" content="Buy BNB (Binance Coin) quickly and securely through Chalkman Labs. Pay via Sorted Wallet, send your wallet address on WhatsApp or SMS, and receive your BNB.">
+<meta name="theme-color" content="#0E7C4A">
+<meta property="og:title" content="Buy BNB Easily | Chalkman Labs">
+<meta property="og:description" content="A simple, guided way to buy BNB. Pay, share your wallet address, and receive your coins.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --green-900:#0B5C36;
+    --green-700:#0E7C4A;
+    --green-600:#14975A;
+    --green-100:#E7F6EE;
+    --green-50:#F3FBF6;
+    --ink-900:#121815;
+    --ink-700:#3A423E;
+    --ink-500:#67716C;
+    --white:#FFFFFF;
+    --line:#E1EAE4;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+    --shadow:0 4px 24px rgba(11,92,54,0.08);
+    --shadow-sm:0 2px 10px rgba(11,92,54,0.06);
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink-900);
+    background:var(--white);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{max-width:100%;display:block;}
+  a{color:inherit;}
+  ul{margin:0;padding:0;}
+  h1,h2,h3,p{margin:0;}
+
+  .wrap{
+    width:100%;
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* Skip link */
+  .skip-link{
+    position:absolute;
+    left:-999px;
+    top:0;
+    background:var(--green-700);
+    color:#fff;
+    padding:10px 16px;
+    border-radius:0 0 8px 0;
+    z-index:1000;
+  }
+  .skip-link:focus{left:0;}
+
+  :focus-visible{
+    outline:3px solid var(--green-600);
+    outline-offset:2px;
+  }
+
+  /* Header */
+  header.site-header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:1.15rem;
+    letter-spacing:-0.01em;
+    text-decoration:none;
+    color:var(--ink-900);
+  }
+  .logo-mark{
+    width:34px;height:34px;
+    border-radius:9px;
+    background:linear-gradient(135deg,var(--green-600),var(--green-900));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:800;font-size:1rem;
+    flex-shrink:0;
+  }
+  .logo span.accent{color:var(--green-700);}
+  nav.top-nav{display:none;}
+  @media (min-width:760px){
+    nav.top-nav{
+      display:flex;
+      gap:28px;
+      font-size:0.95rem;
+      font-weight:600;
+    }
+    nav.top-nav a{
+      text-decoration:none;
+      color:var(--ink-700);
+      padding:6px 2px;
+      border-bottom:2px solid transparent;
+      transition:border-color .15s ease, color .15s ease;
+    }
+    nav.top-nav a:hover{color:var(--green-700);border-color:var(--green-600);}
+  }
+  .header-cta{
+    display:none;
+  }
+  @media (min-width:760px){
+    .header-cta{display:inline-flex;}
+  }
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-size:0.98rem;
+    font-weight:700;
+    padding:14px 22px;
+    border-radius:999px;
+    border:2px solid transparent;
+    cursor:pointer;
+    text-decoration:none;
+    transition:transform .12s ease, box-shadow .12s ease, background .15s ease, border-color .15s ease;
+    line-height:1;
+  }
+  .btn:active{transform:scale(0.98);}
+  .btn-primary{
+    background:var(--green-700);
+    color:#fff;
+    box-shadow:0 6px 18px rgba(14,124,74,0.28);
+  }
+  .btn-primary:hover{background:var(--green-900);}
+  .btn-secondary{
+    background:#fff;
+    color:var(--green-800,var(--green-700));
+    border-color:var(--green-600);
+  }
+  .btn-secondary:hover{background:var(--green-50);}
+  .btn-block{width:100%;}
+  .btn-sm{padding:10px 16px;font-size:0.88rem;}
+
+  /* Hero */
+  .hero{
+    padding:64px 0 56px;
+    background:
+      radial-gradient(60% 60% at 85% 0%, var(--green-100) 0%, rgba(255,255,255,0) 70%),
+      var(--white);
+  }
+  .hero-inner{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    align-items:flex-start;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--green-100);
+    color:var(--green-900);
+    font-weight:700;
+    font-size:0.8rem;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    padding:7px 14px;
+    border-radius:999px;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 6vw, 3.4rem);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    color:var(--ink-900);
+  }
+  .hero h1 .accent{color:var(--green-700);}
+  .hero p.lede{
+    font-size:1.08rem;
+    color:var(--ink-700);
+    max-width:56ch;
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .hero-note{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    background:var(--green-50);
+    border:1px solid var(--green-100);
+    border-radius:var(--radius-md);
+    padding:14px 16px;
+    font-size:0.9rem;
+    color:var(--ink-700);
+    max-width:60ch;
+  }
+  .hero-note svg{flex-shrink:0;margin-top:2px;}
+
+  /* Section shell */
+  section{padding:56px 0;}
+  section.alt{background:var(--green-50);}
+  .section-head{
+    max-width:64ch;
+    margin-bottom:32px;
+  }
+  .section-tag{
+    color:var(--green-700);
+    font-weight:800;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:8px;
+    display:block;
+  }
+  .section-head h2{
+    font-size:clamp(1.5rem,3.4vw,2.1rem);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    color:var(--ink-900);
+  }
+  .section-head p{
+    margin-top:10px;
+    color:var(--ink-700);
+    font-size:1rem;
+  }
+
+  /* Card */
+  .card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:24px;
+    box-shadow:var(--shadow-sm);
+  }
+
+  /* What is BNB */
+  .info-card{
+    display:grid;
+    gap:20px;
+  }
+  @media (min-width:760px){
+    .info-card{grid-template-columns:1.1fr 0.9fr;align-items:center;}
+  }
+  .info-card .card{padding:28px;}
+  .coin-badge{
+    width:56px;height:56px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--green-600),var(--green-900));
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;
+    font-size:1.1rem;
+    margin-bottom:16px;
+  }
+  .info-card h3{font-size:1.2rem;font-weight:800;margin-bottom:8px;}
+  .info-card p{color:var(--ink-700);}
+  .stat-list{
+    display:grid;
+    gap:14px;
+  }
+  .stat-item{
+    background:var(--green-50);
+    border:1px solid var(--green-100);
+    border-radius:var(--radius-md);
+    padding:16px 18px;
+  }
+  .stat-item .label{font-size:0.8rem;font-weight:700;color:var(--green-800,var(--green-900));text-transform:uppercase;letter-spacing:0.03em;}
+  .stat-item .val{font-size:0.95rem;color:var(--ink-700);margin-top:4px;}
+
+  /* How it works */
+  .steps{
+    display:grid;
+    gap:18px;
+    grid-template-columns:1fr;
+  }
+  @media (min-width:640px){
+    .steps{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (min-width:1000px){
+    .steps{grid-template-columns:repeat(5,1fr);}
+  }
+  .step-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    padding:20px 18px;
+    box-shadow:var(--shadow-sm);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .step-num{
+    width:36px;height:36px;
+    border-radius:10px;
+    background:var(--green-100);
+    color:var(--green-800,var(--green-900));
+    font-weight:800;
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.95rem;
+  }
+  .step-card p{font-size:0.92rem;color:var(--ink-700);}
+
+  /* Checklist */
+  .checklist{
+    display:grid;
+    gap:12px;
+    grid-template-columns:1fr;
+  }
+  @media (min-width:640px){
+    .checklist{grid-template-columns:repeat(2,1fr);}
+  }
+  .check-item{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    padding:16px 18px;
+    box-shadow:var(--shadow-sm);
+  }
+  .check-icon{
+    width:26px;height:26px;
+    border-radius:50%;
+    background:var(--green-100);
+    color:var(--green-800,var(--green-900));
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    margin-top:2px;
+  }
+  .check-item span.txt{font-size:0.96rem;color:var(--ink-800,var(--ink-900));}
+
+  /* Important / warning */
+  .warning-card{
+    display:flex;
+    gap:16px;
+    background:#FFF9EC;
+    border:1px solid #F3E1AC;
+    border-radius:var(--radius-lg);
+    padding:24px;
+  }
+  .warning-icon{
+    flex-shrink:0;
+    width:44px;height:44px;
+    border-radius:12px;
+    background:#F5C453;
+    color:#5A4300;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;
+    font-size:1.3rem;
+  }
+  .warning-card h3{font-size:1.1rem;font-weight:800;margin-bottom:8px;color:#5A4300;}
+  .warning-card p{color:#6B5416;font-size:0.96rem;}
+
+  /* Purchase section */
+  .purchase-card{
+    background:linear-gradient(135deg,var(--green-900),var(--green-700));
+    border-radius:24px;
+    padding:40px 28px;
+    color:#fff;
+    text-align:center;
+    box-shadow:0 16px 40px rgba(11,92,54,0.25);
+  }
+  .purchase-card h2{
+    font-size:clamp(1.5rem,3.6vw,2.2rem);
+    font-weight:800;
+    margin-bottom:12px;
+  }
+  .purchase-card p{
+    color:rgba(255,255,255,0.86);
+    max-width:52ch;
+    margin:0 auto 28px;
+  }
+  .purchase-actions{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    max-width:360px;
+    margin:0 auto;
+  }
+  @media (min-width:520px){
+    .purchase-actions{flex-direction:row;max-width:none;justify-content:center;}
+  }
+  .purchase-card .btn-primary{
+    background:#fff;
+    color:var(--green-900);
+    box-shadow:0 6px 18px rgba(0,0,0,0.18);
+  }
+  .purchase-card .btn-primary:hover{background:var(--green-50);}
+  .purchase-card .btn-secondary{
+    background:transparent;
+    border-color:rgba(255,255,255,0.55);
+    color:#fff;
+  }
+  .purchase-card .btn-secondary:hover{background:rgba(255,255,255,0.1);}
+  .sms-note{
+    margin-top:20px;
+    font-size:0.86rem;
+    color:rgba(255,255,255,0.75);
+  }
+  .sms-note a{
+    color:#fff;
+    font-weight:700;
+    text-decoration:underline;
+  }
+
+  /* FAQ */
+  .faq-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .faq-item{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    overflow:hidden;
+  }
+  .faq-item summary{
+    list-style:none;
+    cursor:pointer;
+    padding:18px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    font-weight:700;
+    font-size:0.98rem;
+    color:var(--ink-900);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .plus{
+    flex-shrink:0;
+    width:26px;height:26px;
+    border-radius:50%;
+    background:var(--green-100);
+    color:var(--green-800,var(--green-900));
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;
+    transition:transform .2s ease;
+  }
+  .faq-item[open] summary .plus{transform:rotate(45deg);}
+  .faq-item .faq-body{
+    padding:0 20px 20px;
+    color:var(--ink-700);
+    font-size:0.95rem;
+  }
+
+  /* Footer */
+  footer.site-footer{
+    background:var(--ink-900);
+    color:rgba(255,255,255,0.78);
+    padding:40px 0 28px;
+  }
+  .footer-inner{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .footer-logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    color:#fff;
+    font-size:1.05rem;
+  }
+  .footer-disclaimer{
+    font-size:0.85rem;
+    line-height:1.6;
+    color:rgba(255,255,255,0.6);
+    max-width:70ch;
+    border-top:1px solid rgba(255,255,255,0.12);
+    padding-top:18px;
+  }
+  .footer-bottom{
+    font-size:0.82rem;
+    color:rgba(255,255,255,0.5);
+  }
+
+  .visually-hidden{
+    position:absolute;
+    width:1px;height:1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{scroll-behavior:auto !important; transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark">CL</span>
+      Chalkman <span class="accent">Labs</span>
+    </a>
+    <nav class="top-nav" aria-label="Primary">
+      <a href="#what-is-bnb">What is BNB</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#need">What you need</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary btn-sm header-cta" id="headerBuyBtn" href="#" rel="noopener">Buy BNB</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section id="top" class="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Chalkman Labs · BNB Purchases</span>
+      <h1>Buy <span class="accent">BNB</span> Easily</h1>
+      <p class="lede">
+        BNB is a cryptocurrency, and like all cryptocurrencies its market value can rise or fall
+        at any time. We help you buy BNB through a simple, guided process — pay, share your
+        wallet address, and receive your coins once your payment is confirmed.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" id="buyBtnHero" href="#" rel="noopener">Buy BNB</a>
+        <a class="btn btn-secondary" id="waBtnHero" href="#" target="_blank" rel="noopener">Send Wallet Address</a>
+      </div>
+      <div class="hero-note">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" stroke="#0E7C4A" stroke-width="1.6"/>
+          <path d="M12 8v5" stroke="#0E7C4A" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="12" cy="16" r="0.9" fill="#0E7C4A"/>
+        </svg>
+        <span>Cryptocurrency prices fluctuate. Only purchase amounts you understand the risks of.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS BNB -->
+  <section id="what-is-bnb">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">Getting to know it</span>
+        <h2>What is BNB?</h2>
+      </div>
+      <div class="info-card">
+        <div class="card">
+          <div class="coin-badge">BNB</div>
+          <h3>The native coin of BNB Chain</h3>
+          <p>
+            BNB is the native cryptocurrency of the BNB Chain ecosystem. It can be used for
+            transactions and applications on BNB Chain and is traded on cryptocurrency markets.
+            Its price changes based on market demand and other market conditions.
+          </p>
+        </div>
+        <div class="stat-list">
+          <div class="stat-item">
+            <div class="label">Used for</div>
+            <div class="val">Transactions and applications on BNB Chain.</div>
+          </div>
+          <div class="stat-item">
+            <div class="label">Traded on</div>
+            <div class="val">Cryptocurrency exchanges and markets.</div>
+          </div>
+          <div class="stat-item">
+            <div class="label">Price behavior</div>
+            <div class="val">Changes with market demand — it can rise or fall.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">The process</span>
+        <h2>How it works</h2>
+        <p>Five simple steps from choosing an amount to receiving your BNB.</p>
+      </div>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <p>Choose the amount of BNB you want to buy.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <p>Pay the required amount using the Sorted Wallet payment link.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <p>Copy your compatible BNB wallet address.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <p>Send your wallet address and payment confirmation to us via WhatsApp or SMS.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">5</div>
+          <p>After payment is confirmed, BNB is sent to the wallet address you provided.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU NEED -->
+  <section id="need">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">Before you start</span>
+        <h2>What you need</h2>
+      </div>
+      <div class="checklist">
+        <div class="check-item">
+          <span class="check-icon" aria-hidden="true">✓</span>
+          <span class="txt">A compatible BNB wallet.</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon" aria-hidden="true">✓</span>
+          <span class="txt">The amount you want to purchase.</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon" aria-hidden="true">✓</span>
+          <span class="txt">Your correct BNB wallet address.</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon" aria-hidden="true">✓</span>
+          <span class="txt">A phone with WhatsApp or SMS.</span>
+        </div>
+        <div class="check-item">
+          <span class="check-icon" aria-hidden="true">✓</span>
+          <span class="txt">A successful payment through the provided Sorted Wallet payment link.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPORTANT -->
+  <section id="important" class="alt">
+    <div class="wrap">
+      <div class="warning-card">
+        <div class="warning-icon" aria-hidden="true">!</div>
+        <div>
+          <h3>Important</h3>
+          <p>
+            Cryptocurrency prices can go up or down, and you may lose money. BNB purchases
+            are subject to applicable terms and verification. Always check your wallet address
+            carefully before submitting it, because blockchain transactions may be irreversible.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PURCHASE -->
+  <section id="purchase">
+    <div class="wrap">
+      <div class="purchase-card">
+        <h2>Ready to Buy BNB?</h2>
+        <p>Pay securely through Sorted Wallet, then send us your wallet address and payment confirmation.</p>
+        <div class="purchase-actions">
+          <a class="btn btn-primary" id="buyBtnPurchase" href="#" rel="noopener">Pay with Sorted Wallet</a>
+          <a class="btn btn-secondary" id="waBtnPurchase" href="#" target="_blank" rel="noopener">Send Wallet Address on WhatsApp</a>
+        </div>
+        <p class="sms-note">
+          Prefer SMS? <a id="smsLink" href="#">Text us instead</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">Questions</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is BNB? <span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-body">
+            BNB is the native cryptocurrency of the BNB Chain ecosystem. It can be used for
+            transactions and applications on BNB Chain and is traded on cryptocurrency markets.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What wallet can I use? <span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-body">
+            You need a wallet that is compatible with BNB. Contact Chalkman Labs for details
+            on recommended wallet options.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I send my wallet address? <span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-body">
+            After paying through the Sorted Wallet payment link, use the WhatsApp or SMS
+            buttons on this page to send your wallet address and payment confirmation.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How long does delivery take? <span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-body">
+            Contact Chalkman Labs for details on current delivery timing.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can the value of BNB decrease? <span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-body">
+            Yes. Like all cryptocurrencies, BNB's price changes based on market demand and
+            other market conditions, and it can rise or fall.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I get a refund after a blockchain transfer? <span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-body">
+            Blockchain transactions may be irreversible. Contact Chalkman Labs for details
+            on their refund policy.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-logo">
+      <span class="logo-mark">CL</span>
+      Chalkman Labs
+    </div>
+    <p class="footer-disclaimer">
+      Risk disclaimer: Cryptocurrency, including BNB, is volatile and its value can rise or
+      fall. Past performance is not a guarantee of future results. Chalkman Labs does not
+      provide financial advice and does not guarantee profits or returns. Only purchase what
+      you can afford to lose, and always verify wallet addresses carefully before sending
+      them, as blockchain transactions may be irreversible.
+    </p>
+    <p class="footer-bottom">© 2026 Chalkman Labs. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---- EASY-TO-EDIT CONFIGURATION ----
+  const SORTED_WALLET_PAYMENT_LINK = "https://paylink.sorted.io/remittance/478337fc-a620-4b75-97a0-36c1c1b72959";
+  const WHATSAPP_NUMBER = "254741404852"; // international format, digits only, no + or spaces
+  // -------------------------------------
+
+  const WHATSAPP_MESSAGE =
+    "Hello Chalkman Labs, I have made my BNB payment. My BNB wallet address is: ______. Payment reference: ______.";
+
+  const SMS_MESSAGE =
+    "Hello Chalkman Labs, I have made my BNB payment. My BNB wallet address is: ______. Payment reference: ______.";
+
+  const waUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(WHATSAPP_MESSAGE);
+  const smsUrl = "sms:" + WHATSAPP_NUMBER + "?&body=" + encodeURIComponent(SMS_MESSAGE);
+
+  function setPaymentLink(el) {
+    if (!el) return;
+    el.href = SORTED_WALLET_PAYMENT_LINK;
+    el.target = "_blank";
+    el.rel = "noopener noreferrer";
+  }
+
+  function setWhatsappLink(el) {
+    if (!el) return;
+    el.href = waUrl;
+    el.target = "_blank";
+    el.rel = "noopener noreferrer";
+  }
+
+  // Buy BNB buttons
+  ["headerBuyBtn", "buyBtnHero", "buyBtnPurchase"].forEach(function (id) {
+    setPaymentLink(document.getElementById(id));
+  });
+
+  // WhatsApp buttons
+  ["waBtnHero", "waBtnPurchase"].forEach(function (id) {
+    setWhatsappLink(document.getElementById(id));
+  });
+
+  // SMS link
+  const smsLink = document.getElementById("smsLink");
+  if (smsLink) {
+    smsLink.href = smsUrl;
+  }
+
+  // Ensure only one FAQ item stays a manageable UX (optional: allow multiple open, no restriction needed)
+})();
+</script>
+
+</body>
+</html>
